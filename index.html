@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>訪客表單</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/api-config.js"></script>
     <style>
         :root {
             --primary-color: #4a6fa5;
@@ -171,7 +172,7 @@
                 };
 
                 $.ajax({
-                    url: "https://e5b0-59-127-165-153.ngrok-free.app",
+                    url: API_CONFIG.residents.add(),
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),
