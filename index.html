@@ -190,7 +190,27 @@
                     error: function(xhr, status, error) {
                         $("#alertError").show();
                         $("#alertSuccess").hide();
-                        console.error(xhr.responseText);
+                        console.error("錯誤詳情:", xhr.responseText);
+                        
+                        // 嘗試解析和顯示伺服器返回的錯誤信息
+                        try {
+                            const errorResponse = JSON.parse(xhr.responseText);
+                            console.error("伺服器錯誤:", errorResponse);
+                            
+                            // 在控制台顯示更多錯誤信息
+                            if (errorResponse.error) {
+                                console.error("錯誤類型:", errorResponse.error);
+                            }
+                            if (errorResponse.message) {
+                                console.error("錯誤消息:", errorResponse.message);
+                            }
+                            if (errorResponse.path) {
+                                console.error("錯誤路徑:", errorResponse.path);
+                            }
+                        } catch (e) {
+                            console.error("無法解析錯誤響應:", e);
+                        }
+                        
                         // 3秒後隱藏錯誤訊息
                         setTimeout(function() {
                             $("#alertError").hide();

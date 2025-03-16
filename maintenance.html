@@ -250,65 +250,6 @@
                 }
             }
 
-            // 定義一個函數來處理表單提交
-            function submitForm(url, data) {
-                $.ajax({
-                    url: "https://e5b0-59-127-165-153.ngrok-free.app/api/repairs",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(data),
-                    crossDomain: true,
-                    xhrFields: {
-                        withCredentials: false
-                    },
-                    beforeSend: function() {
-                        console.log("正在發送請求到: " + url);
-                    },
-                    success: function(response) {
-                        $("#alertSuccess").show();
-                        $("#alertError").hide();
-                        console.log("成功回應:", response);
-                        // 清空表單
-                        $("#maintenanceForm")[0].reset();
-                        $("#preview1").html('<div class="preview-placeholder">照片 1 預覽</div>');
-                        $("#preview2").html('<div class="preview-placeholder">照片 2 預覽</div>');
-                        // 3秒後隱藏成功訊息
-                        setTimeout(function() {
-                            $("#alertSuccess").hide();
-                        }, 3000);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("請求失敗:", status, error);
-                        
-                        // 如果是連接問題且使用的是ngrok URL，嘗試使用本地URL
-                        if ((error === "timeout" || xhr.status === 0 || error.indexOf("ERR_SOCKET") !== -1) && 
-                            url.indexOf("ngrok") !== -1) {
-                            console.log("嘗試使用本地端點...");
-                            submitForm("http://localhost:8585/api/repairs", data);
-                        } else {
-                            $("#alertError").show();
-                            $("#alertSuccess").hide();
-                            console.error("錯誤詳情:", xhr.responseText);
-                            // 3秒後隱藏錯誤訊息
-                            setTimeout(function() {
-                                $("#alertError").hide();
-                            }, 3000);
-                            
-                            // 為了測試，在API請求失敗時仍然顯示成功訊息
-                            $("#alertSuccess").show();
-                            $("#alertError").hide();
-                            $("#maintenanceForm")[0].reset();
-                            $("#preview1").html('<div class="preview-placeholder">照片 1 預覽</div>');
-                            $("#preview2").html('<div class="preview-placeholder">照片 2 預覽</div>');
-                            setTimeout(function() {
-                                $("#alertSuccess").hide();
-                            }, 3000);
-                        }
-                    },
-                    timeout: 10000 // 10秒超時
-                });
-            }
-
             // 表單提交
             $("#maintenanceForm").submit(function(event) {
                 event.preventDefault(); // 防止表單自動提交
@@ -329,7 +270,38 @@
                 };
 
                 console.log("提交的數據：", data);
-                submitForm("https://e5b0-59-127-165-153.ngrok-free.app/api/repairs", data);
+
+                // 在實際應用中，這裡應該發送 AJAX 請求到服務器
+                $.ajax({
+                    url: "https://e5b0-59-127-165-153.ngrok-free.app/api/repairs" || API_CONFIG.repairs.submit(),
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    success: function(response) {
+                        $("#alertSuccess").show();
+                        $("#alertError").hide();
+                        console.log(response);
+                        // 清空表單
+                        $("#maintenanceForm")[0].reset();
+                        $("#preview1").html('<div class="preview-placeholder">照片 1 預覽</div>');
+                        $("#preview2").html('<div class="preview-placeholder">照片 2 預覽</div>');
+                        // 3秒後隱藏成功訊息
+                        setTimeout(function() {
+                            $("#alertSuccess").hide();
+                        }, 3000);
+                    },
+                    error: function(xhr, status, error) {
+                        $("#alertError").show();
+                        $("#alertSuccess").hide();
+                        console.error(xhr.responseText);
+                        // 3秒後隱藏錯誤訊息
+                        setTimeout(function() {
+                            $("#alertError").hide();
+                        }, 3000);
+                    }
+                });
+
+       
             });
         });
     </script>
