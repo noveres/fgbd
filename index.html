@@ -152,7 +152,8 @@
 
             <div class="form-group">
                 <label for="visitors">訪客識別碼：</label>
-                <input type="text" id="visitors" required>
+                <input type="text" id="visitors" placeholder="格式：B99王小明" required>
+                <small>請輸入正確格式，例如：B99王小明（棟別+房號+住戶姓名）</small>
             </div>
 
             <button type="submit">送出</button>
@@ -171,15 +172,17 @@
                     "visitors": $("#visitors").val()
                 };
 
+                console.log("提交的數據：", data);
+
                 $.ajax({
                     url: "https://e5b0-59-127-165-153.ngrok-free.app/api/visitors/Add",
                     type: "POST",
-                    contentType: "application/json",
+                    contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(data),
                     success: function(response) {
                         $("#alertSuccess").show();
                         $("#alertError").hide();
-                        console.log(response);
+                        console.log("提交成功：", response);
                         // 清空表單
                         $("#visitorForm")[0].reset();
                         // 3秒後隱藏成功訊息
