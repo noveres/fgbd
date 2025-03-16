@@ -11,12 +11,10 @@ const API_CONFIG = {
     },
     
     // 自動選擇使用本地或生產環境URL
-    // 如果本地服務可用，優先使用本地服務
+    // 優先使用生產環境URL
     getBaseUrl: function() {
-        // 檢測本地服務是否可用的邏輯可以在這裡實現
-        // 簡單起見，這裡先直接返回一個URL
-        // 實際應用中可以使用更複雜的邏輯來決定使用哪個URL
-        return this.BASE_URLS.LOCAL;
+        // 優先使用生產環境URL
+        return this.BASE_URLS.PRODUCTION;
     },
     
     // API端點
