@@ -270,10 +270,8 @@
                 };
 
                 console.log("提交的數據：", data);
-
-                // 在實際應用中，這裡應該發送 AJAX 請求到服務器
                 $.ajax({
-                    url: API_CONFIG.repairs.submit(),
+                    url: "https://e5b0-59-127-165-153.ngrok-free.app/api/repairs",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),
