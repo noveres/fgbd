@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告查詢</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbe;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .announcement-list {
+            list-style: none;
+        }
+
+        .announcement-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .announcement-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .announcement-content {
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .announcement-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .announcement-sort {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .announcement-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>公告查詢</h1>
+        <div class="announcement-list">
+            <div class="announcement-item">
+                <div class="announcement-title">B 棟電梯即將進行維護</div>
+                <div class="announcement-content">B 棟電梯將於 2025 年 6 月 22 日上午 9 點至下午 5 點進行維修，請住戶改搭其他電梯。</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">水電相關</span>
+                    <span class="announcement-date">發布日期：2024/06/20</span>
+                </div>
+            </div>
+
+            <div class="announcement-item">
+                <div class="announcement-title">社區夏日園遊會即將舉辦</div>
+                <div class="announcement-content">本年度社區夏日園遊會將於 7 月 1 日上午 10 點至下午 5 點舉辦，歡迎住戶參與！</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">水電相關</span>
+                    <span class="announcement-date">發布日期：2024/06/25</span>
+                </div>
+            </div>
+
+            <div class="announcement-item">
+                <div class="announcement-title">地下停車場清潔作業通知</div>
+                <div class="announcement-content">7 月 2 日上午 8 點至下午 3 點，地下停車場將進行清潔，請住戶暫時移車。</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">水電相關</span>
+                    <span class="announcement-date">發布日期：2024/06/28</span>
+                </div>
+            </div>
+
+            <div class="announcement-item">
+                <div class="announcement-title">近期發生陌生人闖入事件，請住戶提高警覺</div>
+                <div class="announcement-content">近期社區內發生陌生人闖入案件，請住戶進出時關閉大門，並注意可疑人士。</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">住戶相關</span>
+                    <span class="announcement-date">發布日期：2024/06/30</span>
+                </div>
+            </div>
+
+            <div class="announcement-item">
+                <div class="announcement-title">資源回收日改為每週二、四</div>
+                <div class="announcement-content">社區資源回收日調整為每週二、四，請住戶按照新規則進行垃圾分類與回收。</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">環保公告</span>
+                    <span class="announcement-date">發布日期：2024/07/02</span>
+                </div>
+            </div>
+
+            <div class="announcement-item">
+                <div class="announcement-title">健身房設備維修公告</div>
+                <div class="announcement-content">健身房部分器材將於 7 月 8 日維修，施工期間暫停使用，請住戶留意。</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">水電相關</span>
+                    <span class="announcement-date">發布日期：2024/07/05</span>
+                </div>
+            </div>
+
+            <div class="announcement-item">
+                <div class="announcement-title">社區住戶意見調查開始</div>
+                <div class="announcement-content">為提升社區管理，將於 7 月 10 日起進行住戶滿意度調查，請踴躍參與。</div>
+                <div class="announcement-info">
+                    <span class="announcement-sort">社區公告</span>
+                    <span class="announcement-date">發布日期：2024/07/08</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
