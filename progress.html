@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>維修進度查詢</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbe;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #ddd;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .progress-list {
+            list-style: none;
+        }
+
+        .progress-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .progress-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            background-color: var(--warning-color);
+            color: #000;
+        }
+
+        .status-in-progress {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .status-completed {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .status-cancelled {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .progress-details {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: var(--background-color);
+            border-radius: 4px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .progress-type {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .progress-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .progress-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>維修進度查詢</h1>
+        <div class="progress-list">
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">B 棟電梯維修</div>
+                    <span class="progress-status status-pending">待處理</span>
+                </div>
+                <div class="progress-details">
+                    <p>預計維修時間：2025 年 6 月 22 日上午 9 點至下午 5 點</p>
+                    <p>維修內容：年度電梯保養及零件更換</p>
+                </div>
+                <div class="progress-info">
+                    <span class="progress-type">水電維修</span>
+                    <span>申請日期：2024/06/20</span>
+                </div>
+            </div>
+
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">健身房器材維修</div>
+                    <span class="progress-status status-in-progress">進行中</span>
+                </div>
+                <div class="progress-details">
+                    <p>維修時間：2024 年 7 月 8 日</p>
+                    <p>維修內容：跑步機皮帶更換、腳踏車軸承維修</p>
+                    <p>目前進度：已完成跑步機維修，腳踏車維修中</p>
+                </div>
+                <div class="progress-info">
+                    <span class="progress-type">設備維修</span>
+                    <span>申請日期：2024/07/05</span>
+                </div>
+            </div>
+
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">A 棟大廳漏水修繕</div>
+                    <span class="progress-status status-completed">已完成</span>
+                </div>
+                <div class="progress-details">
+                    <p>維修時間：2024 年 7 月 1 日至 7 月 3 日</p>
+                    <p>維修內容：天花板防水處理、牆面油漆修復</p>
+                    <p>完工備註：已完成防水處理並重新粉刷</p>
+                </div>
+                <div class="progress-info">
+                    <span class="progress-type">漏水維修</span>
+                    <span>申請日期：2024/06/28</span>
+                </div>
+            </div>
+
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">地下停車場照明更換</div>
+                    <span class="progress-status status-cancelled">已取消</span>
+                </div>
+                <div class="progress-details">
+                    <p>原定維修時間：2024 年 7 月 5 日</p>
+                    <p>取消原因：廠商設備供應延遲，將重新安排時間</p>
+                </div>
+                <div class="progress-info">
+                    <span class="progress-type">照明維修</span>
+                    <span>申請日期：2024/06/25</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
