@@ -301,7 +301,7 @@
                         console.log("第一張圖片類型：", $("#photo1")[0].files[0].type);
                         
                         const response1 = await $.ajax({
-                            url: "https://64b1-60-249-202-131.ngrok-free.app/api/upload/image",
+                            url: "https://9f17-60-249-202-131.ngrok-free.app/api/upload/image",
                             type: "POST",
                             data: formData1,
                             processData: false,
@@ -329,7 +329,7 @@
                         console.log("第二張圖片類型：", $("#photo2")[0].files[0].type);
                         
                         const response2 = await $.ajax({
-                            url: "https://64b1-60-249-202-131.ngrok-free.app/api/upload/image",
+                            url: "https://9f17-60-249-202-131.ngrok-free.app/api/upload/image",
                             type: "POST",
                             data: formData2,
                             processData: false,
@@ -365,7 +365,7 @@
 
                     // 發送維修申請
                     await $.ajax({
-                        url: "https://64b1-60-249-202-131.ngrok-free.app/api/repairs",
+                        url: "https://9f17-60-249-202-131.ngrok-free.app/api/repairs",
                         type: "POST",
                         contentType: "application/json",
                         data: JSON.stringify(data),
