@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即將推出</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #636e72;
+        }
+        
+        .icon-container {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gear {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #dfe6e9;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 15px;
+            animation: spin 10s linear infinite;
+        }
+        
+        .gear::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background-color: #dfe6e9;
+            border-radius: 50%;
+        }
+        
+        .gear::after {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 30px;
+            background-color: #dfe6e9;
+            box-shadow: 
+                0 65px 0 #dfe6e9,
+                32.5px 32.5px 0 #dfe6e9,
+                -32.5px 32.5px 0 #dfe6e9,
+                32.5px -32.5px 0 #dfe6e9,
+                -32.5px -32.5px 0 #dfe6e9,
+                0 -65px 0 #dfe6e9,
+                65px 0 0 #dfe6e9,
+                -65px 0 0 #dfe6e9;
+        }
+        
+        .gear:nth-child(2) {
+            animation: spin 10s linear infinite reverse;
+            transform: scale(0.8);
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30%;
+            background: linear-gradient(90deg, #ff6b6b, #feca57);
+            border-radius: 10px;
+            animation: progress 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progress {
+            0% {
+                width: 20%;
+            }
+            100% {
+                width: 80%;
+            }
+        }
+        
+        .contact {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #b2bec3;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .gear {
+                width: 60px;
+                height: 60px;
+                margin: 0 10px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>網站建設中</h1>
+        <p>我們正在努力打造更好的體驗，敬請期待！</p>
+        
+        <div class="icon-container">
+            <div class="gear"></div>
+            <div class="gear"></div>
+        </div>
+        
+        <div class="progress-bar"></div>
+        
+        <p>預計完成時間：獲取投資後的兩個月內</p>
+        <div class="contact">
+            如有任何問題，請聯繫：andrew901117@gmail.com
+        </div>
+    </div>
+</body>
+</html>
