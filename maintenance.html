@@ -359,6 +359,9 @@
                         success: function(response) {
                             $("#alertSuccess").show();
                             $("#alertError").hide();
+                            setTimeout(function() {
+                                $("#alertSuccess").hide();
+                            }, 5000);
                             console.log(response);
                             // 清空表單
                             $("#maintenanceForm")[0].reset();
@@ -367,7 +370,9 @@
                         },
                         error: function(xhr, status, error) {
                             $("#alertError").show();
-                            $("#alertSuccess").hide();
+                            setTimeout(function() {
+                                $("#alertSuccess").hide();
+                            }, 5000);
                             console.error("Error:", error);
                         }
                     });
