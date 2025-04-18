@@ -280,7 +280,7 @@
                     let photo1Url = "";
                     let photo2Url = "";
                     
-                    if ($("#photo1")[0].files.length > 0) {
+                    if ($("#photo1").length > 0 && $("#photo1")[0].files && $("#photo1")[0].files.length > 0) {
                         console.log("開始上傳第一張圖片");
                         const formData1 = new FormData();
                         formData1.append('file', $("#photo1")[0].files[0]);
@@ -308,7 +308,7 @@
                         }
                     }
 
-                    if ($("#photo2")[0].files.length > 0) {
+                    if ($("#photo2").length > 0 && $("#photo2")[0].files && $("#photo2")[0].files.length > 0) {
                         console.log("開始上傳第二張圖片");
                         const formData2 = new FormData();
                         formData2.append('file', $("#photo2")[0].files[0]);
