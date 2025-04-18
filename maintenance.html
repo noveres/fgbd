@@ -73,7 +73,7 @@
 
         textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 18vw;
         }
 
         input[type="text"]:focus, select:focus, textarea:focus {
@@ -174,6 +174,10 @@
                 width: 100%;
                 height: 120px;
             }
+            textarea {
+            resize: vertical;
+            min-height: 200px;
+        }
         }
     </style>
 </head>
@@ -220,27 +224,10 @@
 
             <div class="form-group">
                 <label for="description">問題描述：</label>
-                <select id="description" required>
-                    <option value="">請選擇問題類型...</option>
-                    <option value="水管漏水">水管漏水</option>
-                    <option value="馬桶堵塞">馬桶堵塞</option>
-                    <option value="水龍頭壞掉">水龍頭壞掉</option>
-                    <option value="燈不亮">燈不亮</option>
-                    <option value="電線外露">電線外露</option>
-                    <option value="電路故障">電路故障</option>
-                    <option value="電梯故障">電梯故障</option>
-                    <option value="門鎖損壞">門鎖損壞</option>
-                    <option value="門窗問題">門窗問題</option>
-                    <option value="玻璃破裂">玻璃破裂</option>
-                    <option value="牆壁剝落">牆壁剝落</option>
-                    <option value="地板破損">地板破損</option>
-                    <option value="牆面/地面損壞">牆面/地面損壞</option>
-                    <option value="空調異常">空調異常</option>
-                    <option value="設備故障">設備故障</option>
-                </select>
+                <textarea id="description" required placeholder="請輸入問題描述..."></textarea>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>照片上傳：</label>
                 <div class="photo-upload">
                     <input title ="上傳第一張圖片" type="file" id="photo1" accept="image/*">
@@ -255,7 +242,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <button type="submit">送出申請</button>
         </form>
