@@ -183,7 +183,7 @@
         <div id="alertSuccess" class="alert alert-success">提交成功！</div>
         <div id="alertError" class="alert alert-error">提交失敗，請稍後再試。</div>
         
-        <form id="maintenanceForm" enctype="multipart/form-data">
+        <form id="maintenanceForm">
             <div class="form-group">
                 <label for="sort">維修類型：</label>
                 <select id="sort" required>
@@ -297,6 +297,8 @@
                         console.log("開始上傳第一張圖片");
                         const formData1 = new FormData();
                         formData1.append('file', $("#photo1")[0].files[0]);
+                        console.log("第一張圖片大小：", $("#photo1")[0].files[0].size);
+                        console.log("第一張圖片類型：", $("#photo1")[0].files[0].type);
                         
                         const response1 = await $.ajax({
                             url: "https://proxy2-lyart.vercel.app/api/upload/image",
@@ -304,10 +306,6 @@
                             data: formData1,
                             processData: false,
                             contentType: false,
-                            timeout: 30000,
-                            headers: {
-                                'Accept': 'application/json'
-                            },
                             success: function(response) {
                                 console.log("第一張圖片上傳成功：", response);
                             },
@@ -315,16 +313,9 @@
                                 console.error("第一張圖片上傳失敗：", error);
                                 console.error("錯誤狀態：", status);
                                 console.error("錯誤詳情：", xhr.responseText);
-                                let errorMessage = "圖片上傳失敗";
-                                if (xhr.responseJSON) {
-                                    errorMessage += ": " + (xhr.responseJSON.message || xhr.responseJSON.error || "");
-                                }
-                                $("#alertError").text(errorMessage).show();
-                                $("#alertSuccess").hide();
-                                throw new Error(errorMessage);
                             }
                         });
-                        
+                        console.log("收到第一張圖片的回應：", response1);
                         if (response1.fileName) {
                             photo1Url = `http://localhost:8583/api/upload/images/${response1.fileName}`;
                         }
@@ -334,6 +325,8 @@
                         console.log("開始上傳第二張圖片");
                         const formData2 = new FormData();
                         formData2.append('file', $("#photo2")[0].files[0]);
+                        console.log("第二張圖片大小：", $("#photo2")[0].files[0].size);
+                        console.log("第二張圖片類型：", $("#photo2")[0].files[0].type);
                         
                         const response2 = await $.ajax({
                             url: "https://proxy2-lyart.vercel.app/api/upload/image",
@@ -341,10 +334,6 @@
                             data: formData2,
                             processData: false,
                             contentType: false,
-                            timeout: 30000,
-                            headers: {
-                                'Accept': 'application/json'
-                            },
                             success: function(response) {
                                 console.log("第二張圖片上傳成功：", response);
                             },
@@ -352,16 +341,9 @@
                                 console.error("第二張圖片上傳失敗：", error);
                                 console.error("錯誤狀態：", status);
                                 console.error("錯誤詳情：", xhr.responseText);
-                                let errorMessage = "圖片上傳失敗";
-                                if (xhr.responseJSON) {
-                                    errorMessage += ": " + (xhr.responseJSON.message || xhr.responseJSON.error || "");
-                                }
-                                $("#alertError").text(errorMessage).show();
-                                $("#alertSuccess").hide();
-                                throw new Error(errorMessage);
                             }
                         });
-                        
+                        console.log("收到第二張圖片的回應：", response2);
                         if (response2.fileName) {
                             photo2Url = `http://localhost:8583/api/upload/images/${response2.fileName}`;
                         }
