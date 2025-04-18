@@ -304,6 +304,10 @@
                             data: formData1,
                             processData: false,
                             contentType: false,
+                            timeout: 30000,
+                            headers: {
+                                'Accept': 'application/json'
+                            },
                             success: function(response) {
                                 console.log("第一張圖片上傳成功：", response);
                             },
@@ -311,7 +315,13 @@
                                 console.error("第一張圖片上傳失敗：", error);
                                 console.error("錯誤狀態：", status);
                                 console.error("錯誤詳情：", xhr.responseText);
-                                throw new Error("圖片上傳失敗");
+                                let errorMessage = "圖片上傳失敗";
+                                if (xhr.responseJSON) {
+                                    errorMessage += ": " + (xhr.responseJSON.message || xhr.responseJSON.error || "");
+                                }
+                                $("#alertError").text(errorMessage).show();
+                                $("#alertSuccess").hide();
+                                throw new Error(errorMessage);
                             }
                         });
                         
@@ -331,6 +341,10 @@
                             data: formData2,
                             processData: false,
                             contentType: false,
+                            timeout: 30000,
+                            headers: {
+                                'Accept': 'application/json'
+                            },
                             success: function(response) {
                                 console.log("第二張圖片上傳成功：", response);
                             },
@@ -338,7 +352,13 @@
                                 console.error("第二張圖片上傳失敗：", error);
                                 console.error("錯誤狀態：", status);
                                 console.error("錯誤詳情：", xhr.responseText);
-                                throw new Error("圖片上傳失敗");
+                                let errorMessage = "圖片上傳失敗";
+                                if (xhr.responseJSON) {
+                                    errorMessage += ": " + (xhr.responseJSON.message || xhr.responseJSON.error || "");
+                                }
+                                $("#alertError").text(errorMessage).show();
+                                $("#alertSuccess").hide();
+                                throw new Error(errorMessage);
                             }
                         });
                         
