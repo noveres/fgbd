@@ -152,8 +152,8 @@
 
             <div class="form-group">
                 <label for="visitors">訪客識別碼：</label>
-                <input type="text" id="visitors" placeholder="格式：A01小明" required>
-                <small>請輸入正確格式，例如：A01小明（棟別+房號+住戶姓名）</small>
+                <input type="text" id="visitors" placeholder="格式：A15王小明" required>
+                <small>請輸入正確格式，例如：A15王小明（棟別+房號+住戶姓名）</small>
             </div>
 
             <button type="submit">送出</button>
@@ -175,7 +175,7 @@
                 console.log("提交的數據：", data);
 
                 $.ajax({
-                    url: "https://4140-59-127-165-153.ngrok-free.app/api/visitors/Add",
+                    url: "https://proxy2-lyart.vercel.app/api/visitors/Add",
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(data),
