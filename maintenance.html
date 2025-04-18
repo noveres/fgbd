@@ -243,8 +243,8 @@
             <div class="form-group">
                 <label>照片上傳：</label>
                 <div class="photo-upload">
-                    <input type="file" id="photo1" accept="image/*">
-                    <input type="file" id="photo2" accept="image/*">
+                    <input title ="上傳第一張圖片" type="file" id="photo1" accept="image/*">
+                    <input title ="上傳第二張圖片" type="file" id="photo2" accept="image/*">
                     
                     <div class="photo-preview">
                         <div class="preview-container" id="preview1">
@@ -301,7 +301,7 @@
                         console.log("第一張圖片類型：", $("#photo1")[0].files[0].type);
                         
                         const response1 = await $.ajax({
-                            url: "https://e214-60-249-202-130.ngrok-free.app/api/upload/image",
+                            url: "https://4140-59-127-165-153.ngrok-free.app/api/upload/image",
                             type: "POST",
                             data: formData1,
                             processData: false,
@@ -317,7 +317,7 @@
                         });
                         console.log("收到第一張圖片的回應：", response1);
                         if (response1.fileName) {
-                            photo1Url = `http://localhost:8585/api/upload/images/${response1.fileName}`;
+                            photo1Url = `http://localhost:8583/api/upload/images/${response1.fileName}`;
                         }
                     }
 
@@ -329,7 +329,7 @@
                         console.log("第二張圖片類型：", $("#photo2")[0].files[0].type);
                         
                         const response2 = await $.ajax({
-                            url: "https://e214-60-249-202-130.ngrok-free.app/api/upload/image",
+                            url: "https://4140-59-127-165-153.ngrok-free.app/api/upload/image",
                             type: "POST",
                             data: formData2,
                             processData: false,
@@ -345,7 +345,7 @@
                         });
                         console.log("收到第二張圖片的回應：", response2);
                         if (response2.fileName) {
-                            photo2Url = `http://localhost:8585/api/upload/images/${response2.fileName}`;
+                            photo2Url = `http://localhost:8583/api/upload/images/${response2.fileName}`;
                         }
                     }
 
@@ -365,7 +365,7 @@
 
                     // 發送維修申請
                     await $.ajax({
-                        url: "https://e214-60-249-202-130.ngrok-free.app/api/repairs",
+                        url: "https://4140-59-127-165-153.ngrok-free.app/api/repairs",
                         type: "POST",
                         contentType: "application/json",
                         data: JSON.stringify(data),
