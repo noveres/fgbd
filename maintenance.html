@@ -183,7 +183,7 @@
         <div id="alertSuccess" class="alert alert-success">提交成功！</div>
         <div id="alertError" class="alert alert-error">提交失敗，請稍後再試。</div>
         
-        <form id="maintenanceForm">
+        <form id="maintenanceForm" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="sort">維修類型：</label>
                 <select id="sort" required>
@@ -306,7 +306,8 @@
                             contentType: false,
                             timeout: 30000,
                             headers: {
-                                'Accept': 'application/json'
+                                'Accept': 'application/json',
+                                'Content-Type': 'multipart/form-data'
                             },
                             success: function(response) {
                                 console.log("第一張圖片上傳成功：", response);
@@ -343,7 +344,8 @@
                             contentType: false,
                             timeout: 30000,
                             headers: {
-                                'Accept': 'application/json'
+                                'Accept': 'application/json',
+                                'Content-Type': 'multipart/form-data'
                             },
                             success: function(response) {
                                 console.log("第二張圖片上傳成功：", response);
